@@ -1,0 +1,1032 @@
+
+/* ============================== */
+/* ESTILO GENERAL */
+/* ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050509;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+
+
+/* ============================== */
+/* PARTICULAS DEL FONDO GENERAL */
+/* ============================== */
+
+.inicio,
+.registro,
+.dashboard {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Capa de partículas independiente */
+
+.inicio::before,
+.registro::before,
+.dashboard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(192, 132, 252, 0.75) 1.5px, transparent 2px),
+        radial-gradient(circle, rgba(96, 165, 250, 0.65) 1.5px, transparent 2px),
+        radial-gradient(circle, rgba(168, 85, 247, 0.55) 1px, transparent 2px);
+
+    background-size:
+        100px 120px,
+        150px 170px,
+        210px 190px;
+
+    background-position:
+        10px 20px,
+        70px 90px,
+        120px 40px;
+
+    opacity: 0.65;
+
+    animation: particulasFondo 25s linear infinite;
+}
+
+/* Contenido por encima del fondo */
+
+.inicio > *,
+.registro > *,
+.dashboard > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Movimiento del fondo */
+
+@keyframes particulasFondo {
+    from {
+        background-position:
+            10px 20px,
+            70px 90px,
+            120px 40px;
+    }
+
+    to {
+        background-position:
+            10px -280px,
+            70px -310px,
+            120px -350px;
+    }
+}
+
+
+/* ============================== */
+/* PANTALLA DE INICIO */
+/* ============================== */
+
+.inicio {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+
+    background-image:
+        linear-gradient(rgba(5, 3, 15, 0.35), rgba(5, 3, 15, 0.55)),
+        url("./fondo.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenido {
+    max-width: 800px;
+    animation: aparecer 1.5s ease;
+}
+
+.subtitulo {
+    color: #a855f7;
+    letter-spacing: 6px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(38px, 8vw, 85px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow: 0 0 25px #8b5cf6;
+}
+
+h1 span {
+    color: #a855f7;
+}
+
+.descripcion {
+    color: #60a5fa;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.linea {
+    width: 150px;
+    height: 2px;
+    margin: 35px auto;
+    background: linear-gradient(90deg, transparent, #a855f7, transparent);
+    box-shadow: 0 0 15px #a855f7;
+}
+
+.mensaje {
+    color: #c4c4d4;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #a855f7;
+    color: white;
+    padding: 17px 40px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #7e22ce44;
+}
+
+button:hover {
+    background: #8b5cf6;
+    box-shadow: 0 0 30px #a855f7;
+    transform: scale(1.05);
+}
+
+.version {
+    color: #55516a;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 55px;
+}
+
+
+/* ============================== */
+/* ANIMACIÓN GENERAL */
+/* ============================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================== */
+/* REGISTRO DE CAZADOR */
+/* ============================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.registro {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(rgba(5, 3, 15, 0.80), rgba(5, 3, 15, 0.90)),
+        url("./fondo.png") center / cover no-repeat;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 520px;
+    padding: 35px;
+    background: rgba(8, 6, 20, 0.92);
+    border: 1px solid #8b5cf6;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #8b5cf644;
+    animation: aparecer 0.8s ease;
+}
+
+.formulario h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.formulario label {
+    display: block;
+    text-align: left;
+    color: #c4b5fd;
+    font-size: 13px;
+    margin: 20px 0 8px;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 13px;
+    background: #100c20;
+    border: 1px solid #49336e;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 12px #8b5cf655;
+}
+
+.formulario select option {
+    background: #100c20;
+    color: white;
+}
+
+.formulario button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+    .formulario {
+        padding: 23px;
+    }
+
+    .formulario h1 {
+        font-size: 28px;
+    }
+}
+
+
+/* ============================== */
+/* PANEL PRINCIPAL DEL CAZADOR */
+/* ============================== */
+
+.dashboard {
+    min-height: 100vh;
+    padding: 35px 20px;
+
+    background:
+        linear-gradient(rgba(5, 3, 15, 0.82), rgba(5, 3, 15, 0.92)),
+        url("./fondo.png") center / cover fixed;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    font-size: clamp(25px, 5vw, 45px);
+}
+
+.dashboard-header span {
+    color: #a855f7;
+}
+
+.dashboard-header p {
+    color: #60a5fa;
+    letter-spacing: 4px;
+    margin-top: 12px;
+}
+
+
+/* ============================== */
+/* PANELES PRINCIPALES */
+/* ============================== */
+
+.rango-panel,
+.datos-panel,
+.misiones-panel {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+
+    background: rgba(12, 8, 28, 0.94);
+    border: 1px solid #7040bd;
+    border-radius: 12px;
+
+    box-shadow: 0 0 20px #7e22ce22;
+}
+
+
+/* ============================== */
+/* PANEL DE RANGO */
+/* ============================== */
+
+.rango-panel {
+    text-align: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(147, 51, 234, 0.30),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(37, 99, 235, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(168, 85, 247, 0.25),
+            transparent 35%
+        ),
+        repeating-linear-gradient(
+            125deg,
+            transparent 0px,
+            transparent 35px,
+            rgba(168, 85, 247, 0.06) 36px,
+            transparent 38px
+        ),
+        linear-gradient(
+            135deg,
+            #05030c,
+            #160925,
+            #080613,
+            #1b0b32
+        );
+
+    border: 1px solid #a855f7;
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 15px rgba(168, 85, 247, 0.45),
+        0 0 35px rgba(109, 40, 217, 0.25),
+        inset 0 0 35px rgba(147, 51, 234, 0.20);
+
+    animation: levitarPanel 5s ease-in-out infinite;
+}
+
+
+/* ============================== */
+/* LEVITACIÓN DEL PANEL */
+/* ============================== */
+
+@keyframes levitarPanel {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ============================== */
+/* DESTELLOS DE ENERGÍA */
+/* ============================== */
+
+.rango-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(168, 85, 247, 0.12) 45%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(147, 51, 234, 0.25),
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(37, 99, 235, 0.18),
+            transparent 55%
+        );
+
+    opacity: 0.9;
+}
+
+
+/* ============================== */
+/* MARCO INTERIOR */
+/* ============================== */
+
+.rango-panel::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    z-index: 0;
+    pointer-events: none;
+
+    border: 1px solid rgba(167, 139, 250, 0.18);
+    border-radius: 8px;
+
+    box-shadow:
+        inset 0 0 20px rgba(147, 51, 234, 0.10);
+}
+
+
+/* ============================== */
+/* CAPA DE PARTÍCULAS DEL RANGO */
+/* ============================== */
+
+.rango-panel .particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.rango-panel .particulas span {
+    position: absolute;
+    bottom: -15px;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #c084fc;
+
+    box-shadow:
+        0 0 6px #a855f7,
+        0 0 12px #7e22ce;
+
+    animation: subirParticula linear infinite;
+}
+
+.rango-panel .particulas span:nth-child(2n) {
+    width: 3px;
+    height: 3px;
+    background: #60a5fa;
+
+    box-shadow:
+        0 0 6px #3b82f6,
+        0 0 12px #2563eb;
+}
+
+.rango-panel .particulas span:nth-child(3n) {
+    width: 5px;
+    height: 5px;
+}
+
+
+/* ============================== */
+/* MOVIMIENTO DE PARTÍCULAS */
+/* ============================== */
+
+@keyframes subirParticula {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-450px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+/* CONTENIDO POR ENCIMA DE LAS PARTÍCULAS */
+
+.rango-panel > :not(.particulas) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ============================== */
+/* TEXTO DEL RANGO */
+/* ============================== */
+
+.rango-panel h2 {
+    color: #cd9aff;
+    font-size: 38px;
+    margin: 15px;
+
+    text-shadow:
+        0 0 8px #a855f7,
+        0 0 15px #9333ea,
+        0 0 30px #6b21a8;
+}
+
+.rango-panel p {
+    color: #b9a9d8;
+    text-shadow: 0 0 8px rgba(147, 51, 234, 0.3);
+}
+
+
+/* ============================== */
+/* BARRA DE PROGRESO */
+/* ============================== */
+
+.barra {
+    height: 12px;
+    background: #211735;
+    border-radius: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#progreso {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #6d28d9,
+        #a855f7,
+        #60a5fa
+    );
+
+    transition: width 0.5s;
+}
+
+
+/* ============================== */
+/* DATOS DEL CAZADOR */
+/* ============================== */
+
+.datos-panel h2,
+.misiones-panel h2 {
+    color: #c084fc;
+    margin-bottom: 25px;
+}
+
+.datos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.datos-grid div {
+    background: #171027;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.datos-grid p {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.datos-grid h3 {
+    color: white;
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+.misiones-panel p {
+    color: #aaa;
+}
+
+@media (max-width: 500px) {
+    .datos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================== */
+/* PROGRESO DE RANGO */
+/* ============================== */
+
+.progreso-rango {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 600px;
+
+    background: rgba(15, 10, 30, 0.9);
+    border: 1px solid #7928ca;
+    border-radius: 15px;
+
+    box-shadow: 0 0 20px rgba(121, 40, 202, 0.2);
+}
+
+.barra-experiencia {
+    width: 100%;
+    height: 15px;
+
+    background: #252033;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.relleno-experiencia {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #7928ca,
+        #00bfff
+    );
+
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#completarEntrenamiento {
+    padding: 12px 20px;
+    margin-top: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #7928ca,
+        #005eff
+    );
+
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* ============================== */
+/* INSIGNIAS DE RANGO */
+/* ============================== */
+
+.insignia-rango {
+    display: block;
+
+    width: 300px;
+    height: 300px;
+
+    object-fit: contain;
+    margin: 20px auto;
+
+    filter: drop-shadow(0 0 15px #8b5cf6);
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+
+    animation: aparicionInsignia 1s ease;
+}
+
+.insignia-rango:hover {
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(0 0 10px #8b5cf6)
+        drop-shadow(0 0 25px #a855f7);
+}
+
+
+/* ============================== */
+/* ANIMACIÓN DE INSIGNIA */
+/* ============================== */
+
+@keyframes aparicionInsignia {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ============================== */
+/* INSIGNIA EN MÓVILES */
+/* ============================== */
+
+@media (max-width: 500px) {
+    .insignia-rango {
+        width: min(400px, 100%);
+        height: auto;
+    }
+}
+
+
+/* =============================
+   ORGANIZACIÓN DE MISIONES
+============================= */
+
+#contenidoMision {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.grupo-actividades {
+    padding: 20px;
+    background: rgba(5, 3, 15, 0.75);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 14px;
+}
+
+.grupo-mision {
+    color: #c084fc;
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.actividad-mision {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-top: 10px;
+    background: rgba(30, 20, 50, 0.8);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.actividad-mision:hover {
+    border-color: #a855f7;
+    background: rgba(75, 35, 120, 0.35);
+    transform: translateX(4px);
+}
+
+.casilla-mision {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: #a855f7;
+    cursor: pointer;
+}
+
+.detalle-actividad {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.detalle-actividad strong {
+    color: white;
+    font-size: 15px;
+}
+
+.detalle-actividad small {
+    color: #aaa1bd;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#completarMision {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#completarMision:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+    .grupo-actividades {
+        padding: 13px;
+    }
+
+    .actividad-mision {
+        padding: 12px;
+    }
+}
+
+/* ============================== */
+/* ARCHIVO DE RANGOS */
+/* ============================== */
+
+.menu-navegacion {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu-navegacion button {
+    padding: 12px 22px;
+    font-size: 12px;
+}
+
+.archivo-rangos {
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 30px;
+
+    background: rgba(12, 8, 28, 0.95);
+    border: 1px solid #7040bd;
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px #7e22ce22;
+}
+
+.archivo-rangos h2 {
+    color: #c084fc;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.descripcion-rangos {
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.lista-rangos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.tarjeta-rango {
+    position: relative;
+    padding: 20px 15px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(35, 20, 60, 0.95),
+        rgba(12, 8, 28, 0.95)
+    );
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 12px;
+
+    text-align: center;
+    transition: 0.3s;
+}
+
+.tarjeta-rango h3 {
+    color: #c4b5fd;
+    font-size: 15px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.tarjeta-rango p {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.tarjeta-rango .estado-rango {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 12px;
+
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* RANGO DESBLOQUEADO */
+
+.tarjeta-rango.desbloqueado {
+    border-color: #60a5fa;
+    box-shadow: 0 0 12px #3b82f633;
+}
+
+.tarjeta-rango.desbloqueado .estado-rango {
+    color: #93c5fd;
+    background: rgba(37, 99, 235, 0.15);
+}
+
+/* RANGO ACTUAL */
+
+.tarjeta-rango.actual {
+    border-color: #c084fc;
+
+    background: linear-gradient(
+        145deg,
+        rgba(100, 40, 160, 0.45),
+        rgba(20, 10, 40, 0.95)
+    );
+
+    box-shadow:
+        0 0 15px rgba(168, 85, 247, 0.35),
+        inset 0 0 15px rgba(168, 85, 247, 0.12);
+}
+
+.tarjeta-rango.actual h3 {
+    color: #e9d5ff;
+    text-shadow: 0 0 10px #a855f7;
+}
+
+.tarjeta-rango.actual .estado-rango {
+    color: white;
+    background: #9333ea;
+}
+
+/* RANGO BLOQUEADO */
+
+.tarjeta-rango.bloqueado {
+    opacity: 0.55;
+    filter: grayscale(0.6);
+}
+
+.tarjeta-rango.bloqueado .estado-rango {
+    color: #aaa;
+    background: rgba(100, 100, 100, 0.15);
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+.tarjeta-rango:not(.bloqueado):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* ADAPTACIÓN A MÓVILES */
+
+@media (max-width: 750px) {
+    .lista-rangos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .archivo-rangos {
+        padding: 18px;
+    }
+
+    .lista-rangos {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =============================
+   IMÁGENES DEL ARCHIVO DE RANGOS
+============================= */
+
+.imagen-rango {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.35));
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-rango:hover .imagen-rango {
+    transform: scale(1.12);
+}
+
+.tarjeta-rango.actual .imagen-rango {
+    filter: drop-shadow(0 0 18px rgba(192, 132, 252, 0.8));
+}
+
+.tarjeta-rango.bloqueado .imagen-rango {
+    filter: grayscale(1) brightness(0.55);
+}
+
+@media (max-width: 500px) {
+    .imagen-rango {
+        width: 95px;
+        height: 95px;
+    }
+}

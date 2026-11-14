@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BLACK HOLE SYSTEM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="particulas-fondo" aria-hidden="true"></div>
+
+    <!-- PANTALLA PRINCIPAL -->
+    <main class="inicio" id="inicio">
+
+        <div class="contenido">
+
+            <p class="subtitulo">[ SISTEMA INICIALIZADO ]</p>
+
+            <h1>BLACK HOLE <span>SYSTEM</span></h1>
+
+            <p class="descripcion">
+                TU CUERPO. TU MISIÓN. TU EVOLUCIÓN.
+            </p>
+
+            <div class="linea"></div>
+
+            <p class="mensaje">
+                El cambio comienza cuando decides superar tus límites.
+            </p>
+
+            <button id="comenzar">
+                INICIAR SISTEMA
+            </button>
+
+            <p class="version">
+                BLACK HOLE SYSTEM // VERSIÓN 1.0 by SrKokushibo
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- REGISTRO DEL USUARIO -->
+    <main class="registro" id="registro" hidden>
+
+        <div class="formulario">
+
+            <p class="subtitulo">[ REGISTRO DE CAZADOR ]</p>
+
+            <h1>CREAR <span>PERFIL</span></h1>
+
+            <p class="mensaje">
+                Proporciona tus datos para configurar tu sistema.
+            </p>
+
+            <form id="formulario">
+
+                <label>Nombre de usuario</label>
+                <input type="text" id="nombre" placeholder="Tu nombre" required>
+
+                <label>Edad</label>
+                <input type="number" id="edad" placeholder="Ejemplo: 18" min="13" max="100" required>
+
+                <label>Peso (kg)</label>
+                <input type="number" id="peso" placeholder="Ejemplo: 70" min="20" max="350" step="0.1" required>
+
+                <label>Estatura (cm)</label>
+                <input type="number" id="estatura" placeholder="Ejemplo: 175" min="100" max="250" required>
+
+                <label>Objetivo físico</label>
+
+                <select id="objetivo" required>
+                    <option value="">Selecciona tu objetivo</option>
+                    <option value="Ganar músculo">Ganar músculo</option>
+                    <option value="Perder grasa">Perder grasa</option>
+                    <option value="Mejorar resistencia">Mejorar resistencia</option>
+                    <option value="Aumentar fuerza">Aumentar fuerza</option>
+                    <option value="Mejorar condición física">Mejorar condición física</option>
+                </select>
+
+                <label>Experiencia entrenando</label>
+
+                <select id="experiencia" required>
+                    <option value="">Selecciona tu experiencia</option>
+                    <option value="Principiante">Principiante</option>
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="Avanzado">Avanzado</option>
+                </select>
+
+                <label>¿Dónde entrenarás?</label>
+
+                <select id="lugar" required>
+                    <option value="">Selecciona un lugar</option>
+                    <option value="Casa">En casa</option>
+                    <option value="Gimnasio">En gimnasio</option>
+                    <option value="Ambos">Ambos</option>
+                </select>
+
+                <button type="submit">
+                    CREAR MI PERFIL
+                </button>
+
+            </form>
+
+            <p class="version">
+                BLACK HOLE SYSTEM // DATOS DEL CAZADOR
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- PANEL PRINCIPAL DEL CAZADOR -->
+    <main class="dashboard" id="dashboard" hidden>
+
+        <!-- MENÚ DE NAVEGACIÓN -->
+        <nav class="menu-navegacion">
+
+    <button type="button" id="volverInicio">
+        INICIO
+    </button>
+
+    <button type="button" id="irRangos">
+        ARCHIVO DE RANGOS
+    </button>
+
+</nav>
+
+
+        <header class="dashboard-header">
+
+            <h1>BLACK HOLE <span>SYSTEM</span></h1>
+
+            <p id="bienvenida">
+                BIENVENIDO, CAZADOR
+            </p>
+
+        </header>
+
+
+        <!-- PANEL DE RANGO Y EXPERIENCIA -->
+        <section class="rango-panel">
+
+            <!-- PARTÍCULAS DE ENERGÍA -->
+            <div class="particulas" aria-hidden="true">
+
+                <span style="left: 5%; animation-duration: 7s;"></span>
+                <span style="left: 15%; animation-duration: 9s; animation-delay: 2s;"></span>
+                <span style="left: 25%; animation-duration: 6s; animation-delay: 1s;"></span>
+                <span style="left: 35%; animation-duration: 8s; animation-delay: 3s;"></span>
+                <span style="left: 45%; animation-duration: 7s; animation-delay: 1s;"></span>
+                <span style="left: 55%; animation-duration: 10s; animation-delay: 2s;"></span>
+                <span style="left: 65%; animation-duration: 6s; animation-delay: 4s;"></span>
+                <span style="left: 75%; animation-duration: 8s; animation-delay: 2s;"></span>
+                <span style="left: 85%; animation-duration: 9s; animation-delay: 1s;"></span>
+                <span style="left: 95%; animation-duration: 7s; animation-delay: 3s;"></span>
+
+            </div>
+
+            <p>RANGO ACTUAL</p>
+
+            <h2 id="rangoActual">BRONCE I</h2>
+
+            <!-- INSIGNIA DEL RANGO -->
+            <img
+                id="insigniaRango"
+                class="insignia-rango"
+                src="./insignias/01_Bronce_I.png"
+                alt="Insignia del rango Bronce I"
+            >
+
+            <p id="xp">0 / 100 XP</p>
+
+            <div class="barra">
+                <div id="progreso"></div>
+            </div>
+
+            <p id="siguienteRango">
+                SIGUIENTE RANGO: BRONCE II
+            </p>
+
+        </section>
+
+
+        <!-- DATOS DEL USUARIO -->
+        <section class="datos-panel">
+
+            <h2>ESTADO FÍSICO</h2>
+
+            <div class="datos-grid">
+
+                <div>
+                    <p>PESO</p>
+                    <h3 id="datoPeso">--</h3>
+                </div>
+
+                <div>
+                    <p>ESTATURA</p>
+                    <h3 id="datoEstatura">--</h3>
+                </div>
+
+                <div>
+                    <p>OBJETIVO</p>
+                    <h3 id="datoObjetivo">--</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MISIONES DIARIAS -->
+        <section class="misiones-panel">
+
+            <h2>MISIONES DIARIAS</h2>
+
+            <p>
+                Completa tu entrenamiento para conseguir experiencia.
+            </p>
+
+            <div class="mision">
+
+                <h3 id="tituloMision">DESAFÍO DE ENTRENAMIENTO</h3>
+
+                <p id="descripcionMision">
+                    Preparando tu próximo desafío...
+                </p>
+
+                <!-- JAVASCRIPT GENERARÁ LAS ACTIVIDADES -->
+                <div id="contenidoMision"></div>
+
+                <p class="recompensa" id="recompensaMision">
+                    RECOMPENSA: XP
+                </p>
+
+                <button id="completarMision" type="button" disabled>
+                    VERIFICAR MISIÓN
+                </button>
+
+                <p id="mensajeMision" aria-live="polite"></p>
+
+            </div>
+
+        </section>
+
+        <!-- ARCHIVO DE RANGOS -->
+        <section class="archivo-rangos" id="archivoRangos">
+
+            <h2>ARCHIVO DE RANGOS</h2>
+
+            <p class="descripcion-rangos">
+                Consulta todos los rangos y la experiencia necesaria
+                para desbloquearlos.
+            </p>
+
+            <div class="lista-rangos" id="listaRangos">
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- ARCHIVO JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
