@@ -1030,3 +1030,80 @@ button:hover {
         height: 95px;
     }
 }
+
+
+/* =============================
+   BOTÓN DE TÉCNICA
+============================= */
+
+.boton-tecnica {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 13px;
+    border: 1px solid rgba(150, 80, 255, 0.6);
+    border-radius: 6px;
+    background: rgba(100, 40, 180, 0.18);
+    color: #c99aff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.boton-tecnica:hover {
+    background: rgba(130, 60, 220, 0.35);
+    border-color: #a86aff;
+    color: white;
+}
+
+
+/* =============================
+   PANEL DE INDICACIONES
+============================= */
+
+.panel-tecnica {
+    margin-top: 12px;
+    padding: 14px;
+    border-left: 3px solid #8b4bff;
+    border-radius: 5px;
+    background: rgba(80, 40, 130, 0.16);
+}
+
+.panel-tecnica[hidden] {
+    display: none;
+}
+
+.panel-tecnica strong {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #bd91ff;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.panel-tecnica strong:first-child {
+    margin-top: 0;
+}
+
+.panel-tecnica p {
+    margin: 0;
+    color: #ded6eb;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =============================
+   TARJETAS DE ACTIVIDADES
+============================= */
+
+.actividad-mision {
+    align-items: flex-start;
+}
+
+.detalle-actividad {
+    flex: 1;
+    min-width: 0;
+}
